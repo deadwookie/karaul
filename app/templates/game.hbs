@@ -1,33 +1,27 @@
 <div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            {{#link-to "game.index" class="navbar-brand"}}game.index{{/link-to}}
+          {{#link-to "game.index" class="navbar-brand"}}game.index{{/link-to}}
         </div>
         <ul class="nav navbar-nav">
+            {{#link-to "game.project" tagName="li" href=false}}
+                {{#link-to "game.project"}}project{{/link-to}}
+            {{/link-to}}
             {{#link-to "game.email" tagName="li" href=false}}
-                {{#link-to "game.email"}}game.email{{/link-to}}
+                {{#link-to "game.email"}}email{{/link-to}}
             {{/link-to}}
-            {{#link-to "game.log" tagName="li" href=false}}
-                {{#link-to "game.log"}}game.log{{/link-to}}
+            {{#link-to "scrum" tagName="li" href=false}}
+                {{#link-to "scrum"}}scrum{{/link-to}}
             {{/link-to}}
-            {{!-- {{#link-to "game.scrum" tagName="li" href=false}}
-                {{#link-to "game.scrum"}}game.scrum{{/link-to}}
-            {{/link-to}} --}}
-            {{!-- {{#link-to "game.jobmarket" tagName="li" href=false}}
-                {{#link-to "game.jobmarket"}}game.jobmarket{{/link-to}}
-            {{/link-to}} --}}
+            {{#link-to "game.jobmarket" tagName="li" href=false}}
+                {{#link-to "game.jobmarket"}}jobmarket{{/link-to}}
+            {{/link-to}}
         </ul>
         <div class="navbar-right">
             <ul class="nav navbar-nav">
-            {{!-- {{#link-to "prepare" tagName="li" href=false}}
-                {{#link-to "prepare"}}prepare{{/link-to}}
-            {{/link-to}} --}}
-            {{#link-to "rules" tagName="li" href=false}}
-                {{#link-to "rules"}}rules{{/link-to}}
-            {{/link-to}}
-            {{#link-to "top" tagName="li" href=false}}
-                {{#link-to "top"}}top{{/link-to}}
-            {{/link-to}}
+              {{#link-to "game.log" tagName="li" href=false}}
+                  {{#link-to "game.log"}}log{{/link-to}}
+              {{/link-to}}
             </ul>
         </div>
     </div><!--/.container-fluid -->
