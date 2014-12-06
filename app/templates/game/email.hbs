@@ -1,0 +1,8 @@
+<table class="table">
+	<tr><th>Date</th><th>Topic</th><th>Body</th></tr>
+	{{#each item in model}}
+	<tr>
+		<td>{{item.createdDate}}</td><td>{{item.topic}}</td><td>{{item.body}}</td>
+	</tr>
+	{{/each}}
+</table>

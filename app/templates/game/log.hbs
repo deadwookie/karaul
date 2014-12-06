@@ -1,0 +1,8 @@
+<table class="table">
+	<tr><th>Date</th><th>Message</th></tr>
+	{{#each item in model}}
+	<tr>
+		<td>{{item.createdDate}}</td><td>{{item.msg}}</td>
+	</tr>
+	{{/each}}
+</table>
