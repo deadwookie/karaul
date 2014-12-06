@@ -1,8 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-	name: DS.attr('string'),
-	reqSkills: DS.hasMany('skill', {
+	value: DS.attr('number'),
+	tskills: DS.hasMany('tskill', {
 		async: true
 	})
 });
