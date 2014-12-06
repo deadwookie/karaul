@@ -1,0 +1,6 @@
+{{#each task in model}}
+  <div>{{task.name}}</div>
+  {{#each skill in task.reqSkills}}
+    <div>{{skill.name}}</div>
+  {{/each}}
+{{/each}}
