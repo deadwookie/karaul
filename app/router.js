@@ -6,10 +6,12 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('inbox');
-  this.route('rules');
-  this.route('log');
-  this.route('top');
+	this.resource('game', function(){
+		this.route('inbox');
+		this.route('log');
+	});
+	this.route('rules');
+	this.route('top');
 });
 
 export default Router;

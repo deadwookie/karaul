@@ -1,0 +1,12 @@
+{{outlet}}
+<table class="table">
+	<tr><th>Time</th><th>Message</th></tr>
+	{{#each todo in model}}
+	<tr>
+		<td>{{todo.time}}</td><td>{{todo.msg}}</td>
+	</tr>
+	{{/each}}
+	<tr>
+		<td>1</td><td>2</td>
+	</tr>
+</table>
