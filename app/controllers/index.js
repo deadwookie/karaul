@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
 			});
 
 			return record.save().then(function(game) {
-				return this.transitionToRoute('/play/' + game.get('id'));
+				return this.transitionToRoute('/new/' + game.get('id'));
 			}.bind(this));
 		}
 	}

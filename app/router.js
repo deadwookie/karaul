@@ -6,6 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+	this.route('new', { path: '/new/:game' });
 	this.resource('play', function() {
 		this.resource('game', {path: '/:game'}, function() {
 			this.resource('scrum');
