@@ -2,8 +2,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
 	name: DS.attr('string'),
-	category: DS.hasMany('tskillcategory', {
+	categories: DS.hasMany('tskillcategories', {
 		async: true
-	}),
-	task: DS.belongsTo('task'),
+	})
 });
