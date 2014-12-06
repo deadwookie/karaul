@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
 	actions: {
-		play: function() {
+		prepare: function() {
 			var record = this.store.createRecord('game');
 
 			// @TODO: get basic game data from config
