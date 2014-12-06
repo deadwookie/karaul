@@ -1,6 +1,6 @@
 import DS from 'ember-data';
+import config from '../config/environment';
 
 export default DS.FirebaseAdapter.extend({
-  // @TODO: import from config
-  firebase: new window.Firebase('https://karaul.firebaseio.com')
+	firebase: new window.Firebase(config.firebase.url)
 });

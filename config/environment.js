@@ -16,7 +16,14 @@ module.exports = function(environment) {
 		APP: {
 			// Here you can pass flags/options to your application instance
 			// when it is created
-		}
+		},
+
+		firebase: {
+			url: 'https://karaul.firebaseio.com'
+		},
+
+		// Put custom settings above
+		dev: true
 	};
 
 	if (environment === 'development') {
