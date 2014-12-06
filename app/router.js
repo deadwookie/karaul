@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('inbox');
   this.route('rules');
   this.route('log');
+  this.route('top');
 });
 
 export default Router;
