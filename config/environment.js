@@ -22,8 +22,7 @@ module.exports = function(environment) {
 			url: 'https://karaul.firebaseio.com'
 		},
 
-		// Put custom settings above
-		dev: true
+		GAME: require('./game')(environment)
 	};
 
 	if (environment === 'development') {
@@ -52,5 +51,5 @@ module.exports = function(environment) {
 
 	}
 
-return ENV;
+	return ENV;
 };
