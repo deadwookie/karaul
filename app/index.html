@@ -7,20 +7,19 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{BASE_TAG}}
+    {{content-for 'head'}}
 
     <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/karaul.css">
+    <link rel="stylesheet" href="assets/omg.css">
+
+    {{content-for 'head-footer'}}
   </head>
   <body>
-    <script>
-      window.KaraulENV = {{ENV}};
-      window.EmberENV = window.KaraulENV.EmberENV;
-    </script>
+    {{content-for 'body'}}
+
     <script src="assets/vendor.js"></script>
     <script src="assets/karaul.js"></script>
-    <script>
-      window.Karaul = require('karaul/app')['default'].create(KaraulENV.APP);
-    </script>
+
+    {{content-for 'body-footer'}}
   </body>
 </html>
