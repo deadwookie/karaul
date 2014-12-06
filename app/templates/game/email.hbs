@@ -1,8 +1,17 @@
 <table class="table">
 	<tr><th>Date</th><th>Topic</th><th>Body</th></tr>
 	{{#each item in model}}
-	<tr>
-		<td>{{item.createdDate}}</td><td>{{item.topic}}</td><td>{{item.body}}</td>
-	</tr>
+
+
+		{{#if item.isRead}}
+			<tr>
+				<td>{{item.createdDate}}</td><td>{{item.topic}}</td><td>{{item.body}}</td>
+			</tr>
+		{{else}}
+			<tr style="font-weight: bold">
+				<td>{{item.createdDate}}</td><td>{{item.topic}}</td><td>{{item.body}}</td>
+			</tr>
+		{{/if}}
+
 	{{/each}}
 </table>
