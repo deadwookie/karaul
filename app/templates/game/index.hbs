@@ -1,1 +1,27 @@
-game index
+<h1>Game data</h1>
+<ul>
+  <li>sprintCount: {{sprintCount}}</li>
+  <li>yearCount: {{yearCount}}</li>
+  <li>
+    <h3>Project data</h3>
+    {{#each projects}}
+      <ul>
+        <li>name: {{name}}</li>
+        <li>projectStage: {{projectStage}}</li>
+        <li>keyCategory: {{keyCategory}}</li>
+        <li>userCount: {{userCount}}</li>
+        <li>budget: {{budget}}</li>
+        <li>
+          employees:
+          <ul>
+          {{#each employees}}
+            <li>
+              name: {{name}} | salary: {{salary}}
+            </li>
+          {{/each}}
+          </ul>
+        </li>
+      </ul>
+    {{/each}}
+  </li>
+</ul>
