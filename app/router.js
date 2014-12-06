@@ -7,7 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
 	this.resource('game', function(){
-		this.route('inbox');
+		this.route('email');
 		this.route('log');
 	});
 	this.route('rules');

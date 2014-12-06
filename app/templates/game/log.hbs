@@ -1,8 +1,8 @@
-asdasdasd
-<table>
-	{{#each todo in model}}
+<table class="table">
+	<tr><th>Date</th><th>Message</th></tr>
+	{{#each item in model}}
 	<tr>
-		<td>{{todo.time}}</td><td>{{todo.msg}}</td>
+		<td>{{item.createdDate}}</td><td>{{item.msg}}</td>
 	</tr>
 	{{/each}}
 </table>
