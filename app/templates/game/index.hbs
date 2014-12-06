@@ -3,6 +3,14 @@
   <li>sprintCount: {{sprintCount}}</li>
   <li>yearCount: {{yearCount}}</li>
   <li>
+    dev pool:
+    <ul>
+        {{#each devPool}}
+            <li>name: {{name}} | salary: {{salary}}</li>
+        {{/each}}
+    </ul>
+  </li>
+  <li>
     <h3>Project data</h3>
     {{#each projects}}
       <ul>
