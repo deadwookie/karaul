@@ -5,3 +5,22 @@
   }
 }
 
+.progress {
+  border-radius: 0;
+
+  .progress-bar {
+    white-space: nowrap;
+    text-shadow: 1px 1px 1px #000;
+  }
+}
+
+.progress-invert {
+  background-color: #444;
+  @include gradient-striped;
+  background-size: 40px 40px;
+}
+
+.progress-slim {
+  height: 7px;
+}
+
