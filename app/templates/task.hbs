@@ -1,4 +1,7 @@
-<button {{action "generate"}}>new task</button>
+<button {{action "generate" "alpha"}}>new "alpha" task</button>
+<button {{action "generate" "beta"}}>new "beta" task</button>
+<button {{action "generate" "release"}}>new "release" task</button>
+<button {{action "generate" "v2"}}>new "v2" task</button>
 <hr>
 
 {{#each task in model}}

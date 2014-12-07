@@ -16,7 +16,7 @@ export default Ember.Object.extend({
 		options = options || {};
 
 		if (!options.charSet) {
-			charSet = 'abcdefghijklmnopqrstuvwxyz';
+			var charSet = 'abcdefghijklmnopqrstuvwxyz';
 		}
 
 		var randomString = '',
@@ -50,10 +50,10 @@ export default Ember.Object.extend({
 
 
 		while (true) {
-			a = Math.floor(Math.random() * (maxSteps - minSteps + 1)) + minSteps;
-			b = Math.floor(Math.random() * (maxSteps - minSteps + 1)) + minSteps;
-			c = Math.floor(Math.random() * (maxSteps - minSteps + 1)) + minSteps;
-			if (a+b+c<cplx.maxSum) break;
+			a = (Math.floor(Math.random() * (maxSteps - minSteps + 1)) + minSteps)*5;
+			b = (Math.floor(Math.random() * (maxSteps - minSteps + 1)) + minSteps)*5;
+			c = (Math.floor(Math.random() * (maxSteps - minSteps + 1)) + minSteps)*5;
+			if (a+b+c<=cplx.maxSum) break;
 		}
 
 		return [a,b,c];
@@ -62,36 +62,46 @@ export default Ember.Object.extend({
 	newTaskSkillSet: function() {
 		var skillTags = this.get('config.skillTags');
 
-		var skilltag = this.getRandom(skillTags),
-			tag = this.getRandom(skilltag.tags),
-			cat = skilltag.name,
-			cplxs = this.getTaskComplexities();
+		var cplxs = this.getTaskComplexities(),
+			cnt = 0,
+			arr =[],
+			skill;
 
-		// var skill = this.store.createRecord('skill', {
-		// 	category: cat,
-		// 	tag: tag
-		// });
+		Object.keys(skillTags).forEach(function(category){
+			skill = this.store.createRecord('skill', {
+				category: category,
+				tag: this.getRandom(skillTags[category].tags),
+				value: cplxs[cnt],
+			});
+			cnt++;
+			arr.push(skill);
+		}.bind(this));
 
-		// return skill;
+		return Ember.RSVP.Promise.all(arr.map(function(item) {
+			return item.save();
+		}));
 	},
 
-	newTask: function() {
+	newTask: function(stage) {
 
-		this.newSkill();
+		var stages = this.config.get('projectStages');
+		if (!stages[stage]) throw 'Wrong stage';
 
-		var stages = this.congif.get('projectStates');
-		var cats = this.congif.get('featureCategories');
-		var features = this.congif.get('features');
+		var cats = this.config.get('featureCategories');
+		var features = this.config.get('features');
 
+		var skills = this.newTaskSkillSet();
 		var task = this.store.createRecord('task',{
 			requiredProjectState: stages[stage],
 			project: 'project1',
-			category: getRandom(cats),
-			name: getRandom(features),
+			category: this.getRandom(cats),
+			name: this.getRandom(features),
 		})
 
-		// var task = this.store.createRecord('post', {
-		// });
-		// return task;
+		return this.newTaskSkillSet().then(function(items){
+			task.get('complexity').addObjects(items);
+			return task.save();
+		});
+
 	}
 });

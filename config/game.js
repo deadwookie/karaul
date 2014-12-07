@@ -58,8 +58,8 @@ module.exports = function(environment) {
 			newbiePenaltyHours: 20
 		},
 
-		projectStates: {
-			prototype: 'Prototype',
+		projectStages: {
+			alpha: 'Prototype',
 			beta: 'Beta',
 			release: 'Release',
 			v2: '2.0',
