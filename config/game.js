@@ -12,6 +12,7 @@ module.exports = function(environment) {
 		},
 
 		project: {
+			startingBudget: 100000,
 			taskCount: {
 				alpha: 10,
 				beta: 14,
