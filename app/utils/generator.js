@@ -34,16 +34,15 @@ export default Ember.Object.extend({
 		var data = {},
 			skillLevels = this.getDevSkillLevels(level, this.getDevSkillCount(level));
 
-		console.log(skillLevels);
-
 		data.name = this.getRandomString(5, {capitaliseFirst: true}) + ' ' + this.getRandomString(7, {capitaliseFirst: true});
-		data.skills = this.getDevSkills(level, skillLevels);
 		data.salary = this.getDevSalary(skillLevels);
 
-		return data;
+		var dev = this.store.createRecord('dev', data);
 
-		// var dev = this.store.createRecord('dev', data);
-		// return dev;
+		return this.getDevSkills(skillLevels).then(function(skills){
+			dev.get('skills').addObjects(skills);
+			return dev.save();
+		});
 	},
 
 	getDevSalary: function(skillLevels) {
@@ -62,9 +61,25 @@ export default Ember.Object.extend({
 		return Math.round(Math.random() * (skillSettings.maxCount - skillSettings.minCount) + skillSettings.minCount);
 	},
 
-	getDevSkills: function() {
-		// @TODO:
-		return [];
+	getDevSkills: function(skillLevels) {
+		var skillTags = this.get('config.skillTags'),
+			cnt = 0,
+			arr =[],
+			skill;
+
+		Object.keys(skillTags).forEach(function(category){
+			skill = this.store.createRecord('skill', {
+				category: category,
+				tag: this.getRandom(skillTags[category].tags),
+				value: skillLevels[cnt],
+			});
+			cnt++;
+			arr.push(skill);
+		}.bind(this));
+
+		return Ember.RSVP.Promise.all(arr.map(function(item) {
+			return item.save();
+		}));
 	},
 
 	getDevSkillLevels: function(level, count) {

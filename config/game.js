@@ -12,7 +12,7 @@ module.exports = function(environment) {
 			max: 100,
 			increment: 5,
 			maxGrow: 90,
-			minCount: 2,
+			minCount: 1,
 			maxCount: 3,
 
 			junior: {
