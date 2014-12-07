@@ -6,7 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-	this.route('new', { path: '/new/:game' });
+	this.route('new', {path: '/new/:game'});
+
 	this.resource('play', function() {
 		this.resource('game', {path: '/:game'}, function() {
 			this.resource('scrum');
@@ -19,7 +20,6 @@ Router.map(function() {
 	});
 
 	this.route('rules');
-
 
 	this.route('top');
 	this.route('task');
