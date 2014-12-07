@@ -3,7 +3,21 @@ module.exports = function(environment) {
 	var config = {
 		game: {
 			sprintCount: 40,
-			yearCount: 4
+			yearCount: 4,
+			devCount: {
+				junior: 6,
+				middle: 3,
+				senior: 2
+			}
+		},
+
+		project: {
+			taskCount: {
+				alpha: 10,
+				beta: 14,
+				release: 22,
+				v2: 27,
+			}
 		},
 
 		skill: {

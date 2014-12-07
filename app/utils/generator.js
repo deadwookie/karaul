@@ -188,6 +188,17 @@ export default Ember.Object.extend({
 			task.get('complexity').addObjects(items);
 			return task.save();
 		});
+	},
 
+	generateGameTasks: function() {
+		// todo: create tasks for project: using this.newTask() for each stage/count in config.project.taskCount
+	},
+
+	generateGameDevs: function() {
+		// todo: create devs (game.devPool): using this.newDev() for each level/count in config.game.devCount
+	},
+
+	generateProject: function() {
+		// todo: create project
 	}
 });
