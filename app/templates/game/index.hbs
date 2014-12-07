@@ -4,19 +4,19 @@
 
 <h1>Game data</h1>
 <ul>
-    <li>sprintCount: {{sprintCount}}</li>
-    <li>yearCount: {{yearCount}}</li>
+    <li>sprintCount: {{model.sprintCount}}</li>
+    <li>yearCount: {{model.yearCount}}</li>
     <li>
         dev pool:
         <ul>
-            {{#each devPool}}
+            {{#each model.devPool}}
                 <li>name: {{name}} | salary: {{salary}}</li>
             {{/each}}
         </ul>
     </li>
     <li>
     <h3>Project data</h3>
-    {{#each projects}}
+    {{#each model.projects}}
         <ul>
             <li>name: {{name}}</li>
             <li>projectStage: {{projectStage}}</li>
