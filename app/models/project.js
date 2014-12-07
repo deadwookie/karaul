@@ -8,5 +8,8 @@ export default DS.Model.extend({
 	budget: DS.attr('number'),
 	employees: DS.hasMany('dev', {
 		async: true
+	}),
+	emails: DS.hasMany('email', {
+		async: true
 	})
 });
