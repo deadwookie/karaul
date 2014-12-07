@@ -16,30 +16,97 @@ export default Ember.Object.extend({
 		options = options || {};
 
 		if (!options.charSet) {
-			charSet = 'abcdefghijklmnopqrstuvwxyz';
+			options.charSet = 'abcdefghijklmnopqrstuvwxyz';
 		}
 
 		var randomString = '',
 			randomPos;
 
 		for (var i = 0; i < len; i++) {
-			randomPos = Math.floor(Math.random() * charSet.length);
-			randomString += charSet.substring(randomPos, randomPos + 1);
+			randomPos = Math.floor(Math.random() * options.charSet.length);
+			randomString += options.charSet.substring(randomPos, randomPos + 1);
 		}
 
-		return options.capitaliseFirst ? randomString.charAt(0).toUpperCase() + string.slice(1) : randomString;
+		return options.capitaliseFirst ? randomString.charAt(0).toUpperCase() + randomString.slice(1) : randomString;
 	},
 
 	newDev: function(level) {
-		var data = {};
+		var data = {},
+			skillLevels = this.getDevSkillLevels(level, this.getDevSkillCount(level));
 
-		data.name = getRandomString(5, {capitaliseFirst: true}) + ' ' + getRandomString(7, {capitaliseFirst: true});
-		data.skills = [];
-		data.salary = 123123;
+		console.log(skillLevels);
 
-		var dev = this.store.createRecord('dev', data);
+		data.name = this.getRandomString(5, {capitaliseFirst: true}) + ' ' + this.getRandomString(7, {capitaliseFirst: true});
+		data.skills = this.getDevSkills(level, skillLevels);
+		data.salary = this.getDevSalary(skillLevels);
 
-		return dev;
+		return data;
+
+		// var dev = this.store.createRecord('dev', data);
+		// return dev;
+	},
+
+	getDevSalary: function(skillLevels) {
+		// =ROUND(AVERAGE(E3:E5)+max(E3:E5)/2)*1000
+		var skillLevelsSum = skillLevels.reduce(function(pItem, cItem) {
+				return pItem + cItem
+			}),
+			skillLevelsAvg = skillLevelsSum / skillLevels.length,
+			skillLevelsAvgMax = Math.max.apply(Math, skillLevels);
+
+		return Math.round(skillLevelsAvg + skillLevelsAvgMax / 2) * 1000;
+	},
+
+	getDevSkillCount: function() {
+		var skillSettings = this.get('config.skill');
+		return Math.round(Math.random() * (skillSettings.maxCount - skillSettings.minCount) + skillSettings.minCount);
+	},
+
+	getDevSkills: function(level, skillLevels) {
+		// @TODO:
+		return [];
+	},
+
+	getDevSkillLevels: function(level, count) {
+		// =IF(AND(MAX(E3:E5)>=70;SUM(E3:E5)>=150);"Senior";IF(AND(MAX(E3:E5)>=50;SUM(E3:E5)>=90);"Middle";IF(AND(MAX(E3:E5)>=20;SUM(E3:E5)>=40);"Junior")))
+
+		// just to be sure :)
+		if (!count) {
+			return [];
+		}
+
+		var skillSettings = this.get('config.skill'),
+			skillLimits = skillSettings[level],
+			result = [],
+			oneSkillMoreThan,
+			sumSkillMoreThan,
+			sumSkillLessThan,
+			i, s;
+
+		while (true) {
+			result = [];
+
+			for (i = 0; i < count; i++) {
+				s = skillSettings.increment * (Math.round((Math.floor(Math.random() * (skillSettings.max - skillSettings.minSum + 1)) + skillSettings.increment) / skillSettings.increment));
+				result.push(s);
+			}
+
+			oneSkillMoreThan = result.every(function(item) {
+				return item >= skillLimits.max;
+			});
+			sumSkillMoreThan = skillLimits.sum <= result.reduce(function(pItem, cItem) {
+				return pItem + cItem;
+			});
+			sumSkillLessThan = skillLimits.maxSum > result.reduce(function(pItem, cItem) {
+				return pItem + cItem;
+			});
+
+			if (oneSkillMoreThan && sumSkillMoreThan && sumSkillLessThan) {
+				break;
+			}
+		}
+
+		return result;
 	},
 
 	getTaskComplexities: function(level) {

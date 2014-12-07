@@ -12,25 +12,31 @@ module.exports = function(environment) {
 			max: 100,
 			increment: 5,
 			maxGrow: 90,
+			minCount: 2,
+			maxCount: 3,
 
 			junior: {
 				max: 20,
-				sum: 90
+				sum: 40,
+				maxSum: 90
 			},
 
 			middle: {
 				max: 50,
-				sum: 150
+				sum: 90,
+				maxSum: 150
 			},
 
 			senior: {
 				max: 70,
-				sum: 240
+				sum: 150,
+				maxSum: 300
 			},
 
 			guru: {
-				max: 70,
-				sum: 300
+				max: 100,
+				sum: 300,
+				maxSum: 300
 			}
 		},
 
