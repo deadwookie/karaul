@@ -64,8 +64,8 @@ module.exports = function(environment) {
 			newbiePenaltyHours: 20
 		},
 
-		projectStates: {
-			prototype: 'Prototype',
+		projectStages: {
+			alpha: 'Prototype',
 			beta: 'Beta',
 			release: 'Release',
 			v2: '2.0',
@@ -150,6 +150,24 @@ module.exports = function(environment) {
 			'Languages',
 			'Security',
 		],
+
+		events: [
+			{
+				desc: 'Чтобы удовлетворить прихоти своей девушки, ваш джуниор вынужден был найти вторую работу. Он получает + к 3м своим маскимальным тегам, но в текущем спринте работает на четверть меньше.',
+				config: {onceAffect:{tags:{targetDev:'min()',targetTags:'3 max()',valueChange:1}},sprintAffect:{humanHours:{targetDev:'min()',valueChange:'*0.75'}}}
+
+			},
+			{
+				desc: 'Ваши девы согласись проработать все выходные за то, что вы установите в офис мини-пивоварню. Заплатите $500. Время спринта увеличивается на четверть.',
+				config: {onceAffect:{money:-500},sprintAffect:{humanHours:{targetDev:'all',valueChange:'*1.25'}}}
+
+			},
+			{
+				desc: 'Ваш фронтенд девелопер увлекся Босхом и начал делать компоненты под стать. Это добавило вам 200к ценителей искусства. Его фронтенд скиллы увеличились, но рабочие часы в данном спринте уменьшаются на четверть.',
+				config: {onceAffect:{traffic:200},tags:{targetDev:'max(F)',targetTags:'all(F)',valueChange:1},sprintAffect:{humanHours:{targetDev:'max(F)',valueChange:'*0.75'}}}
+
+			}
+		]
 
 	};
 
