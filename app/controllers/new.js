@@ -3,8 +3,13 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	actions: {
 		play: function() {
-			// @TODO: set custom game params, update settings/players/etc...
-			return this.transitionToRoute('/play/' + this.get('model.id'));
+			this.get('model.players').addObject(this.get('auth.user'));
+			this.get('model').set('status', 'started');
+
+			return this.get('model').save()
+				.then(function(game) {
+					return this.transitionToRoute('/play/' + game.id);
+				}.bind(this));
 		}
 	}
 });

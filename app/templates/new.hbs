@@ -1,1 +1,32 @@
 <button {{action "play"}}>ok, ready</button>
+<br>
+{{#if isCreator}}
+    you are awesome (creator)
+{{/if}}
+<br>
+<h1>TODO</h1>
+<ul>
+  <li>game rules</li>
+  <li>game settings</li>
+  <li>game roster (players)</li>
+  <li>invite players/share game</li>
+  <li>chat</li>
+  <li>
+    "ok, ready" button logic
+    <ul>
+      <li>set user in players</li>
+      <li>
+        if single player
+        <ul>
+          <li>game status pending => started</li>
+          <li>generate project</li>
+          <li>generate dev pool</li>
+          <li>generate dev tasks</li>
+          <li>transition to 'play/:id'</li>
+        </ul>
+      </li>
+      <li>force start (only for creator)</li>
+      <li>auto start (if current players count === game players limit)</li>
+    </ul>
+  </li>
+</ul>

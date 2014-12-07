@@ -1,4 +1,7 @@
-<button {{action "generate"}}>new task</button>
+<button {{action "generate" "alpha"}}>new "alpha" task</button>
+<button {{action "generate" "beta"}}>new "beta" task</button>
+<button {{action "generate" "release"}}>new "release" task</button>
+<button {{action "generate" "v2"}}>new "v2" task</button>
 <hr>
 
 {{#each task in model}}
@@ -15,8 +18,8 @@
   {{#each child in task.children}}
     <div>Child Task: {{child.name}}</div>
   {{/each}}
-  {{#each skill in task.requiredSkills}}
-    <div>Required Skill: {{skill.category}} | {{skill.tag}} : {{skill.value}}</div>
+  {{#each skill in task.complexity}}
+    <div>Complexity: {{skill.category}} | {{skill.tag}} : {{skill.value}}</div>
   {{/each}}
   <div style="padding-bottom: 20px;">&nbsp;</div>
   </div>

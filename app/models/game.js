@@ -17,5 +17,6 @@ export default DS.Model.extend({
 	}),
 	players: DS.hasMany('user', {
 		async: true
-	})
+	}),
+	status: DS.attr('string')
 });
