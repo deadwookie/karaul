@@ -4,6 +4,7 @@ export default DS.Model.extend({
 	name: DS.attr('string'),
 	salary: DS.attr('number'),
 	skills: DS.hasMany('skill', { async: true }),
+
 	marketSalary: function() {
 		var values = this.get('skills').getEach('value');
 
@@ -19,17 +20,19 @@ export default DS.Model.extend({
 
 		return Math.round(skillLevelsAvg + skillLevelsAvgMax / 2) * 1000 || 0;
 	}.property('skills.@each.value'),
+
 	level: function() {
 		var values = this.get('skills').getEach('value'),
+			skillLevels = this.get('config.skillLevels'),
 			level,
 			anyMoreThan,
 			sumMoreThan;
 
-		Object.keys(this.get('config.skillLevels')).forEach(function(lvl) {
+		Object.keys(skillLevels).forEach(function(lvl) {
 			anyMoreThan = values.any(function(v) {
-				return v >= lvl.max;
+				return v >= skillLevels[lvl].max;
 			});
-			sumMoreThan = lvl.sum <= values.reduce(function(pItem, cItem) {
+			sumMoreThan = skillLevels[lvl].sum <= values.reduce(function(pItem, cItem) {
 				return pItem + cItem;
 			}, 0);
 
