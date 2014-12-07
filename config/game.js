@@ -44,7 +44,94 @@ module.exports = function(environment) {
 			maxPerTeam: 5,
 			sprintHours: 40,
 			newbiePenaltyHours: 20
-		}
+		},
+
+		projectStates: {
+			prototype: 'Prototype',
+			beta: 'Beta',
+			release: 'Release',
+			v2: '2.0',
+		},
+
+		skillTags: {
+			fontEnd: {
+				name: 'Front-End',
+				tags: [
+					'jQuery',
+					'Ember.js',
+					'HTML+CSS',
+					'backbone.js',
+					'Ext.js'
+				]
+			},
+			backEnd: {
+				name: 'Back-End',
+				tags: [
+					'php',
+					'Java',
+					'Ruby',
+					'node.js',
+					'Scala',
+				]
+			},
+			architect: {
+				name: 'Architect',
+				tags: [
+					'UML',
+					'Flow Charts',
+					'ERD',
+					'Petri net',
+					'Markov chains'
+				]
+			}
+		},
+
+		featureCategories:{
+			core: 'Core Feature',
+			social: 'Social Feature',
+			wow: 'Wow-Feature'
+		},
+
+		features: [
+			'Facebook structure',
+			'News Feed',
+			'Friend',
+			'Wall',
+			'Timeline',
+			'Like',
+			'Messages and inbox',
+			'Notifications',
+			'Networks and groups',
+			'Applications',
+			'Events',
+			'Marketplace',
+			'Notes',
+			'Places',
+			'Platform',
+			'Questions',
+			'Photos',
+			'Videos',
+			'Facebook Paper',
+			'General features',
+			'Credits',
+			'Feature phones',
+			'Graph Search',
+			'IPv6',
+			'Listen with Friends',
+			'Facebook Live',
+			'Mood faces',
+			'Phone',
+			'Poke',
+			'Smartphone integration',
+			'Subscribe',
+			'Ticker',
+			'URL shortener',
+			'Verified Accounts',
+			'Hash tagging Feature',
+			'Introducing Say Thanks',
+			'Languages',
+			'Security',
+		],
 
 	};
 
