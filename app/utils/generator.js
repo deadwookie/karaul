@@ -190,6 +190,11 @@ export default Ember.Object.extend({
 		});
 	},
 
+	newEvent: function() {
+		var events = this.config.get('events');
+		return events[Math.round((Math.random()*(events.length-1)))];
+	},
+
 	generateGameTasks: function() {
 		// todo: create tasks for project: using this.newTask() for each stage/count in config.project.taskCount
 	},
