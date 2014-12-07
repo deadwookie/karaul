@@ -1,0 +1,39 @@
+.gap-no {
+  margin-bottom: 0;
+}
+.gap-sm {
+  margin-bottom: 5px;
+}
+.gap-md {
+  margin-bottom: 10px;
+}
+.gap-lg {
+  margin-bottom: 20px;
+}
+.gap-xl {
+  margin-bottom: 40px;
+}
+
+.lift-no {
+  margin-top: 0;
+}
+.lift-sm {
+  margin-top: -5px;
+}
+.lift-md {
+  margin-top: -10px;
+}
+.lift-lg {
+  margin-top: -20px;
+}
+.lift-xl {
+  margin-top: -40px;
+}
+
+
+.text-nowrap-overflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+}

@@ -1,6 +1,32 @@
 @import 'bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap';
-@import 'bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap';
 @import 'bower_components/fontawesome/scss/font-awesome';
+@import 'helpers';
 
 body {
+}
+
+
+// dev card
+.dev-card {
+}
+
+.dev-heading {
+
+}
+
+.dev-salary {
+  font-size: 28px;
+  font-weight: normal;
+
+  s, small {
+    font-size: 16px;
+  }
+}
+
+.dev-skill-list {
+  // font-size: 12px;
+
+  li {
+    padding-bottom: 5px;
+  }
 }
