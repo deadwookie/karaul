@@ -7,14 +7,10 @@ export default Ember.Object.extend({
 	newDev: function() {},
 
 	newTask: function() {
-		console.warn('generator', this.get('config.skill.max'));
-
-		debugger;
-
 		return this.store.find('task', 'task1')
-			.done(function() {
+			.then(function(task) {
 				console.info('task1 done');
-				console.warn(arguments);
+				console.warn(task.toJSON());
 			});
 	}
 });

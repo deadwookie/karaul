@@ -12,6 +12,6 @@ export function initialize(container, application) {
 
 export default {
 	name: 'generator',
-	after: 'config',
+	after: ['config', 'store'],
 	initialize: initialize
 };
