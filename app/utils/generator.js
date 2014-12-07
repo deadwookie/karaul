@@ -14,26 +14,30 @@ export default Ember.Object.extend({
 
 	newDev: function() {},
 
-	getSkillValues: function(level) {
-		var skill = this.get('config.skill'),
-			level = skill[level];
+	getTaskComplexities: function(level) {
+		var cplx = this.get('config.taskComplexity'),
+			maxSteps = cplx.max/cplx.step,
+			minSteps = 1,
+			a,b,c;
 
-		var maxHandicap = 2,
-			max = Math.floor(level.sum/4),
-			min = 1;
 
 		while (true) {
-			var a = Math.floor(Math.random() * (max - min + 1)) + min
+			a = Math.floor(Math.random() * (maxSteps - minSteps + 1)) + minSteps;
+			b = Math.floor(Math.random() * (maxSteps - minSteps + 1)) + minSteps;
+			c = Math.floor(Math.random() * (maxSteps - minSteps + 1)) + minSteps;
+			if (a+b+c<cplx.maxSum) break;
 		}
+
+		return [a,b,c];
 	},
 
-	newSkill: function() {
+	newTaskSkillSet: function() {
 		var skillTags = this.get('config.skillTags');
 
 		var skilltag = this.getRandom(skillTags),
 			tag = this.getRandom(skilltag.tags),
-			cat = skilltag.name;
-
+			cat = skilltag.name,
+			cplxs = this.getTaskComplexities();
 
 		// var skill = this.store.createRecord('skill', {
 		// 	category: cat,

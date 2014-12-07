@@ -35,8 +35,8 @@ module.exports = function(environment) {
 		},
 
 		taskComplexity: {
-			min: 5,
 			max: 30,
+			maxSum: 50,
 			step: 5
 		},
 
