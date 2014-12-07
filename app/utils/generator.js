@@ -189,5 +189,10 @@ export default Ember.Object.extend({
 			return task.save();
 		});
 
+	},
+
+	newEvent: function() {
+		var events = this.config.get('events');
+		return events[Math.round((Math.random()*(events.length-1)))];
 	}
 });
