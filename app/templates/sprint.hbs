@@ -1,0 +1,14 @@
+{{#each sprint in model}}
+  {{#each dev in sprint.devs}}
+     <div>Parent Task: {{parent.name}}</div>
+  {{/each}}
+  {{#each child in task.children}}
+    <div>Child Task: {{child.name}}</div>
+  {{/each}}
+  {{#each skill in task.complexity}}
+    <div>Complexity: {{skill.category}} | {{skill.tag}} : {{skill.value}}</div>
+  {{/each}}
+  <div style="padding-bottom: 20px;">&nbsp;</div>
+  </div>
+{{/each}}
+

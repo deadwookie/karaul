@@ -167,7 +167,6 @@ export default Ember.Object.extend({
 	},
 
 	newTask: function(stage) {
-
 		var stages = this.config.get('projectStages');
 		if (!stages[stage]) {
 			throw 'Wrong stage';
@@ -188,6 +187,69 @@ export default Ember.Object.extend({
 			task.get('complexity').addObjects(items);
 			return task.save();
 		});
+	},
 
+	newProject: function() {
+		var featureCategories = this.config.get('featureCategories'),
+			project = this.store.createRecord('project', {
+				name: this.getRandomString(7, {capitaliseFirst: true}),
+				// projectStage: 'alpha',
+				keyCategory: this.getRandom(featureCategories),
+				userCount: 0,
+				budget: this.config.get('project.startingBudget')
+			});
+
+		return project.save();
+	},
+
+	newEvent: function() {
+		var events = this.config.get('events');
+		return events[Math.round((Math.random()*(events.length-1)))];
+	},
+
+	generateGameTasks: function() {
+		// todo: create tasks for project: using this.newTask() for each stage/count in config.project.taskCount
+
+		var taskCount = this.config.get('project.taskCount'),
+			promises = [];
+
+		for (var stage in taskCount) {
+			for (var i = 0; i < taskCount[stage]; i++) {
+				promises.push(this.newTask(stage));
+			}
+		}
+
+		return Ember.RSVP.Promise.all(promises);
+	},
+
+	generateGameDevs: function() {
+		// todo: create devs (game.devPool): using this.newDev() for each level/count in config.game.devCount
+
+		var devCount = this.config.get('game.devCount'),
+			promises = [];
+
+		for (var level in devCount) {
+			for (var i = 0; i < devCount[level]; i++) {
+				promises.push(this.newDev(level));
+			}
+		}
+
+		return Ember.RSVP.Promise.all(promises);
+	},
+
+	generateProject: function() {
+		var promises = {
+			project: this.newProject(),
+			tasks: this.generateGameTasks()
+		};
+
+		return Ember.RSVP.hash(promises)
+			.then(function(hash) {
+				hash.project.get('projectTree').addObjects(hash.tasks);
+
+				return hash.project.save();
+			}.bind(this), function(reason) {
+				console.error(reason.message);
+			}.bind(this));
 	}
 });
