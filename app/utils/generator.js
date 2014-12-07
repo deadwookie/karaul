@@ -12,7 +12,35 @@ export default Ember.Object.extend({
 		return obj[keys[idx]];
 	},
 
-	newDev: function() {},
+	getRandomString: function(len, options) {
+		options = options || {};
+
+		if (!options.charSet) {
+			charSet = 'abcdefghijklmnopqrstuvwxyz';
+		}
+
+		var randomString = '',
+			randomPos;
+
+		for (var i = 0; i < len; i++) {
+			randomPos = Math.floor(Math.random() * charSet.length);
+			randomString += charSet.substring(randomPos, randomPos + 1);
+		}
+
+		return options.capitaliseFirst ? randomString.charAt(0).toUpperCase() + string.slice(1) : randomString;
+	},
+
+	newDev: function(level) {
+		var data = {};
+
+		data.name = getRandomString(5, {capitaliseFirst: true}) + ' ' + getRandomString(7, {capitaliseFirst: true});
+		data.skills = [];
+		data.salary = 123123;
+
+		var dev = this.store.createRecord('dev', data);
+
+		return dev;
+	},
 
 	getTaskComplexities: function(level) {
 		var cplx = this.get('config.taskComplexity'),
