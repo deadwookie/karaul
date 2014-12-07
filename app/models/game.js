@@ -11,5 +11,11 @@ export default DS.Model.extend({
 	}),
 	devPool: DS.hasMany('dev', {
 		async: true
+	}),
+	creator: DS.belongsTo('user', {
+		async: true
+	}),
+	players: DS.hasMany('user', {
+		async: true
 	})
 });

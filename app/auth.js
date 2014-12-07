@@ -4,6 +4,7 @@ export default Ember.Object.extend({
 	user: void 0,
 
 	session: function() {
+		// @TODO: user auth !
 		return this.store.find('user', 'user1')
 			.then(function(user) {
 				console.info('session user:', user && user.toJSON());
@@ -13,7 +14,5 @@ export default Ember.Object.extend({
 
 	hasPermission: function() {
 		return true;
-	},
-
-
+	}
 });

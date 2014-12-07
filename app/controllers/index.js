@@ -11,10 +11,11 @@ export default Ember.Controller.extend({
 			// -- devpool
 			// -- project
 			// etc..
-			record.setProperties({
-				sprintCount: 40,
-				yearCount: 4
-			});
+
+			record.set('sprintCount', 40);
+			record.set('yearCount', 4);
+			record.set('creator', this.get('auth.user'));
+			record.get('players').addObject(this.get('auth.user'));
 
 			return record.save().then(function(game) {
 				return this.transitionToRoute('/new/' + game.get('id'));
