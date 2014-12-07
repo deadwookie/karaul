@@ -1,6 +1,10 @@
 /* jshint node: true */
 module.exports = function(environment) {
-	var GAME = {
+	var config = {
+		game: {
+			sprintCount: 40,
+			yearCount: 4
+		},
 
 		skill: {
 			min: 0,
@@ -50,5 +54,5 @@ module.exports = function(environment) {
 	if (environment === 'production') {
 	}
 
-	return GAME;
+	return config;
 };

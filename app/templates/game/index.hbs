@@ -2,10 +2,24 @@
     you are no able to change anything... (not in game.players)
 {{/unless}}
 
+{{#if isCreator}}
+    you are awesome (creator)
+{{/if}}
+
 <h1>Game data</h1>
 <ul>
     <li>sprintCount: {{model.sprintCount}}</li>
     <li>yearCount: {{model.yearCount}}</li>
+    <li>status: {{model.status}}</li>
+    <li>creator: {{model.creator.name}}</li>
+    <li>
+        players:
+        <ul>
+            {{#each model.players}}
+                <li>{{name}}</li>
+            {{/each}}
+        </ul>
+    </li>
     <li>
         dev pool:
         <ul>
