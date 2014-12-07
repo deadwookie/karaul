@@ -20,7 +20,6 @@ Router.map(function() {
 	});
 
 	this.route('rules');
-
 	this.route('top');
 	this.route('task');
 });

@@ -3,9 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	actions: {
 		generate: function() {
-			this.generator.newTask({
-				foo: 'bar'
-			});
+			this.generator.newTask();
 		}
 	}
 });

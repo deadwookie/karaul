@@ -13,7 +13,7 @@ export default DS.Model.extend({
 	}),
 	project: DS.attr('string'),
 	requiredProjectState: DS.attr('string'),
-	requiredSkills: DS.hasMany('skill', {
+	complexity: DS.hasMany('skill', {
 		async: true
 	}),
 });

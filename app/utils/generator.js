@@ -1,35 +1,51 @@
 import Ember from 'ember';
 
-var getRandom = function(obj) {
-	var keys = Object.keys(obj),
-		min = 0,
-		max = keys.length;
-	if (min===max) { return undefined; }
-	var idx = Math.floor(Math.random()*keys.length);
-	return this[keys[idx]];
-};
-
 export default Ember.Object.extend({
 	store: null,
-	config: null,
+
+	getRandom : function(obj) {
+		var keys = Object.keys(obj),
+			min = 0,
+			max = keys.length;
+		if (min===max) { return undefined; }
+		var idx = Math.floor(Math.random()*keys.length);
+		return obj[keys[idx]];
+	},
 
 	newDev: function() {},
 
+	getSkillValues: function(level) {
+		var skill = this.get('config.skill'),
+			level = skill[level];
+
+		var maxHandicap = 2,
+			max = Math.floor(level.sum/4),
+			min = 1;
+
+		while (true) {
+			var a = Math.floor(Math.random() * (max - min + 1)) + min
+		}
+	},
+
 	newSkill: function() {
-//		var skillTags = this.congif.get('skillTags');
+		var skillTags = this.get('config.skillTags');
+
+		var skilltag = this.getRandom(skillTags),
+			tag = this.getRandom(skilltag.tags),
+			cat = skilltag.name;
+
 
 		// var skill = this.store.createRecord('skill', {
-		// 	category: getRandom(skillTags).name
+		// 	category: cat,
+		// 	tag: tag
 		// });
 
-//		return skill;
+		// return skill;
 	},
 
 	newTask: function() {
 
-		var skillTags = this.congif.get('skillTags');
 		this.newSkill();
-		debugger;
 
 		var stages = this.congif.get('projectStates');
 		var cats = this.congif.get('featureCategories');

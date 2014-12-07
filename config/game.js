@@ -8,24 +8,36 @@ module.exports = function(environment) {
 
 		skill: {
 			min: 0,
+			minSum: 40,
 			max: 100,
 			increment: 5,
 			maxGrow: 90,
 
 			junior: {
 				max: 20,
-				sum: 40
+				sum: 90
 			},
 
 			middle: {
 				max: 50,
-				sum: 90
+				sum: 150
 			},
 
 			senior: {
 				max: 70,
-				sum: 150
+				sum: 240
+			},
+
+			guru: {
+				max: 70,
+				sum: 300
 			}
+		},
+
+		taskComplexity: {
+			min: 5,
+			max: 30,
+			step: 5
 		},
 
 		estimate: {
