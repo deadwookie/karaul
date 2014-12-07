@@ -1,35 +1,39 @@
+{{#unless isPlayer}}
+    you are no able to change anything... (not in game.players)
+{{/unless}}
+
 <h1>Game data</h1>
 <ul>
-  <li>sprintCount: {{sprintCount}}</li>
-  <li>yearCount: {{yearCount}}</li>
-  <li>
-    dev pool:
-    <ul>
-        {{#each devPool}}
-            <li>name: {{name}} | salary: {{salary}}</li>
-        {{/each}}
-    </ul>
-  </li>
-  <li>
+    <li>sprintCount: {{sprintCount}}</li>
+    <li>yearCount: {{yearCount}}</li>
+    <li>
+        dev pool:
+        <ul>
+            {{#each devPool}}
+                <li>name: {{name}} | salary: {{salary}}</li>
+            {{/each}}
+        </ul>
+    </li>
+    <li>
     <h3>Project data</h3>
     {{#each projects}}
-      <ul>
-        <li>name: {{name}}</li>
-        <li>projectStage: {{projectStage}}</li>
-        <li>keyCategory: {{keyCategory}}</li>
-        <li>userCount: {{userCount}}</li>
-        <li>budget: {{budget}}</li>
-        <li>
-          employees:
-          <ul>
-          {{#each employees}}
+        <ul>
+            <li>name: {{name}}</li>
+            <li>projectStage: {{projectStage}}</li>
+            <li>keyCategory: {{keyCategory}}</li>
+            <li>userCount: {{userCount}}</li>
+            <li>budget: {{budget}}</li>
             <li>
-              name: {{name}} | salary: {{salary}}
+                employees:
+                <ul>
+                    {{#each employees}}
+                        <li>
+                            name: {{name}} | salary: {{salary}}
+                        </li>
+                    {{/each}}
+                </ul>
             </li>
-          {{/each}}
-          </ul>
-        </li>
-      </ul>
+        </ul>
     {{/each}}
-  </li>
+    </li>
 </ul>
