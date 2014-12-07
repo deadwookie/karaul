@@ -28,9 +28,12 @@ app.import('bower_components/swag/lib/swag.js');
 var pickFiles = require('broccoli-static-compiler');
 var bootstrapFonts = pickFiles('bower_components/bootstrap-sass-official/assets/fonts/bootstrap', {
   srcDir: '/',
+  destDir: '/fonts/bootstrap'
+});
+var awesomeFonts = pickFiles('bower_components/fontawesome/fonts', {
+  srcDir: '/',
   destDir: '/fonts'
 });
 
 
-
-module.exports = app.toTree(bootstrapFonts);
+module.exports = app.toTree([bootstrapFonts, awesomeFonts]);
