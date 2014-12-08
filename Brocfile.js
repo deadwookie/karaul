@@ -20,12 +20,12 @@ var app = new EmberApp();
 // Swag, https://github.com/elving/swag
 app.import('bower_components/swag/lib/swag.js');
 
-
 // Bootstrap
 // app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js');
 
  // Glyphicons
 var pickFiles = require('broccoli-static-compiler');
+
 var bootstrapFonts = pickFiles('bower_components/bootstrap-sass-official/assets/fonts/bootstrap', {
   srcDir: '/',
   destDir: '/fonts/bootstrap'
@@ -34,6 +34,5 @@ var awesomeFonts = pickFiles('bower_components/fontawesome/fonts', {
   srcDir: '/',
   destDir: '/fonts'
 });
-
 
 module.exports = app.toTree([bootstrapFonts, awesomeFonts]);

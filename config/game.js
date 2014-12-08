@@ -4,6 +4,7 @@ module.exports = function(environment) {
 		game: {
 			sprintCount: 40,
 			yearCount: 4,
+			devSlots: 5,
 			devCount: {
 				student: 0,
 				junior: 4,
