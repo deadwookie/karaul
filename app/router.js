@@ -15,6 +15,7 @@ Router.map(function() {
 		this.route('jobmarket');
 		this.route('emails');
 		this.route('log');
+		this.route('rules');
 	});
 
 	this.route('rules');

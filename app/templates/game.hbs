@@ -19,6 +19,9 @@
         </ul>
         <div class="navbar-right">
             <ul class="nav navbar-nav">
+              {{#link-to "game.rules" tagName="li" href=false}}
+                  {{#link-to "game.rules"}}rules{{/link-to}}
+              {{/link-to}}
               {{#link-to "game.log" tagName="li" href=false}}
                   {{#link-to "game.log"}}log{{/link-to}}
               {{/link-to}}
