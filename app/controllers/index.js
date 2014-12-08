@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
 			record.set('status', 'pending');
 
 			return record.save().then(function(game) {
-				return this.transitionToRoute('/new/' + game.id);
+				return this.transitionToRoute('/play/' + game.id);
 			}.bind(this));
 		}
 	}

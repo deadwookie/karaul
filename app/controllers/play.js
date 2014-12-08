@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
 
 					return this.get('model').save()
 						.then(function(game) {
-							return this.transitionToRoute('/play/' + game.id);
+							return this.transitionToRoute('/game/' + game.id);
 						}.bind(this));
 				}.bind(this), function(reason) {
 					console.error(reason.message);

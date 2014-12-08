@@ -6,17 +6,15 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-	this.route('new', {path: '/new/:game'});
+	this.route('play', {path: '/play/:game'});
 
-	this.resource('play', function() {
-		this.resource('game', {path: '/:game'}, function() {
-			this.resource('scrum');
+	this.resource('game', {path: '/game/:game'}, function() {
+		this.resource('scrum');
 
-			this.route('project');
-			this.route('jobmarket');
-			this.route('email');
-			this.route('log');
-		});
+		this.route('project');
+		this.route('jobmarket');
+		this.route('email');
+		this.route('log');
 	});
 
 	this.route('rules');
