@@ -11,13 +11,22 @@ body {
 // dev card
 .dev-card {
   &:hover {
-    box-shadow: 0px 0px 30px rgba(0,0,0, .2);
+    box-shadow: $card-shadow;
 
     .dev-heading, .dev-actions {
-      box-shadow: 0px 0px 12px rgba(0,0,0, .2) inset;
+      box-shadow: $card-inset-shadow;
     }
   }
+}
 
+.task-card {
+  &:hover {
+    box-shadow: $card-shadow;
+
+    .task-heading {
+      text-shadow: 1px 0 5px #ccc;
+    }
+  }
 }
 
 .dev-ava {
