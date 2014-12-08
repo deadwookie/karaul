@@ -53,3 +53,68 @@
     @include tab-focus;
   }
 }
+
+.hero-badge {
+  text-align: center;
+  padding: 20px 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: $card-inset-shadow;
+}
+.hero-badge-body {
+  z-index: 2;
+  position: relative;
+  text-shadow: 0 0 7px #aaa;
+}
+.hero-badge-icon {
+  z-index: 1;
+  position: absolute;
+  right: -5px;
+  bottom: -10px;
+  opacity: .2
+}
+.hero-badge-value {
+  display: block;
+  line-height: 56px;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: bold;
+}
+.hero-badge-title, .hero-badge-desc {
+  display: block;
+  font-size: 12px;
+}
+.hero-badge-title {
+  text-transform: uppercase;
+}
+
+.hero-badge-default {
+  color: $panel-default-text;
+  background-color: $panel-default-heading-bg;
+  border-color: $panel-default-border;
+}
+.hero-badge-primary {
+  color: $panel-primary-text;
+  background-color: $panel-primary-heading-bg;
+  border-color: $panel-primary-border;
+}
+.hero-badge-success {
+  color: $panel-success-text;
+  background-color: $panel-success-heading-bg;
+  border-color: $panel-success-border;
+}
+.hero-badge-info {
+  color: $panel-info-text;
+  background-color: $panel-info-heading-bg;
+  border-color: $panel-info-border;
+}
+.hero-badge-warning {
+  color: $panel-warning-text;
+  background-color: $panel-warning-heading-bg;
+  border-color: $panel-warning-border;
+}
+.hero-badge-danger {
+  color: $panel-danger-text;
+  background-color: $panel-danger-heading-bg;
+  border-color: $panel-danger-border;
+}
