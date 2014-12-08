@@ -1,558 +1,129 @@
-
-{{#each}}
-  {{idname}}, {{name}}<br>
-{{/each}}
-<hr>
-{{#each team}}
-  {{idname}}, {{name}}<br>
-{{/each}}
-
-
 {{!-- developers market --}}
 <div class="container">
   <div class="row">
+    {{#each}}
+      <div class="col-sm-3">
+        <div {{bind-attr class=":panel cardHeaderCls :dev-card :dev-card-market"}}>
+          <div class="panel-heading dev-heading">
+            <h3 class="text-center text-nowrap-overflow lift-no gap-no">
+              <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
+              {{name}}
+            </h3>
+            <p class="text-center text-muted gap-no lift-md dev-level">{{level}}</p>
+          </div>
 
-    <div class="col-sm-3">
-      <div class="panel panel-default dev-card dev-card-market">
-        <div class="panel-heading dev-heading">
-          <h3 class="text-center text-nowrap-overflow lift-no gap-no">
-            <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
-            Vasiliy Pupkinovich
-          </h3>
-          <p class="text-center text-muted gap-no lift-md dev-level">Junior</p>
-        </div>
-
-        <div class="panel-body text-center">
-          <p class="lead gap-no text-nowrap dev-salary">
-            <strong class="text-danger">$35’000</strong> <small class="text-muted">per year</small>
-          </p>
-        </div>
-
-        <ul class="list-group text-center dev-skill-list">
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-danger">Architect:</strong>
-              Patterns, RegExp, OOP
+          <div class="panel-body text-center">
+            <p class="lead gap-no text-nowrap dev-salary">
+              <s class="text-danger hidden">$27’000</s>
+              <strong class="text-danger">${{salary}}</strong> <small class="text-muted">per year</small>
             </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">55%</div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-success">Back End:</strong>
-              PHP, node.js, JAVA, MySql, PostgreSQL
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 60%">60%</div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-info">Front End:</strong>
-              HTML5
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 10%">10%</div>
-            </div>
-          </li>
-        </ul>
-        <div class="panel-footer dev-actions">
-          <button class="btn btn-primary btn-lg btn-block">Hire Vasya</button>
-        </div>
-      </div><!-- /.dev-card -->
-    </div><!-- /.col-sm-X -->
+          </div>
 
-    <div class="col-sm-3">
-      <div class="panel panel-info dev-card dev-card-market">
-        <div class="panel-heading dev-heading">
-          <h3 class="text-center lift-no gap-no">
-            <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
-            John Doe
-          </h3>
-          <p class="text-center text-muted gap-no lift-md dev-level">Middle</p>
-        </div>
-
-        <div class="panel-body text-center">
-          <p class="lead gap-no text-nowrap dev-salary">
-            <strong class="text-danger">$105’000</strong> <small class="text-muted">per year</small>
-          </p>
-        </div>
-
-        <ul class="list-group text-center dev-skill-list">
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-danger">Architect:</strong>
-              Patterns, RegExp, OOP
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">55%</div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-success">Back End:</strong>
-              PHP, node.js, JAVA, MySql, PostgreSQL
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 60%">60%</div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-info">Front End:</strong>
-              HTML5
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 10%">10%</div>
-            </div>
-          </li>
-        </ul>
-        <div class="panel-footer dev-actions">
-          <button class="btn btn-primary btn-lg btn-block">Hire Vasya</button>
-        </div>
-      </div><!-- /.dev-card -->
-    </div><!-- /.col-sm-X -->
-
-    <div class="col-sm-3">
-      <div class="panel panel-warning dev-card dev-card-market">
-        <div class="panel-heading dev-heading">
-          <h3 class="text-center lift-no gap-no">
-            <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
-            Agent Smith
-          </h3>
-          <p class="text-center text-muted gap-no lift-md dev-level">Junior</p>
-        </div>
-
-        <div class="panel-body text-center">
-          <p class="lead gap-no text-nowrap dev-salary">
-            <s class="text-danger">$27’000</s>
-            <strong class="text-danger">$23’500</strong> <small class="text-muted">per year</small>
-          </p>
-        </div>
-
-        <ul class="list-group text-center dev-skill-list">
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-danger">Architect:</strong>
-              Patterns, RegExp, OOP
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">55%</div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-success">Back End:</strong>
-              PHP, node.js, JAVA, MySql, PostgreSQL
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 60%">60%</div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-info">Front End:</strong>
-              HTML5
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 10%">10%</div>
-            </div>
-          </li>
-        </ul>
-        <div class="panel-footer dev-actions">
-          <button class="btn btn-primary btn-lg btn-block">Hire Vasya</button>
-        </div>
-      </div><!-- /.dev-card -->
-    </div><!-- /.col-sm-X -->
-
-    <div class="col-sm-3">
-      <div class="panel panel-success dev-card dev-card-market">
-        <div class="panel-heading dev-heading">
-          <h3 class="text-center lift-no gap-no">
-            <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
-            Dima Bad
-          </h3>
-          <p class="text-center text-muted gap-no lift-md dev-level">Senior</p>
-        </div>
-
-        <div class="panel-body text-center">
-          <p class="lead gap-no text-nowrap dev-salary">
-            <strong class="text-danger">$35’000</strong> <small class="text-muted">per year</small>
-          </p>
-        </div>
-
-        <ul class="list-group text-center dev-skill-list">
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-danger">Architect:</strong>
-              Patterns, RegExp, OOP
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 99%">99%</div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-success">Back End:</strong>
-              PHP, node.js, JAVA, MySql, PostgreSQL
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 60%">60%</div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <p class="gap-no text-muted text-nowrap-overflow dev-skill">
-              <strong class="text-info">Front End:</strong>
-              &mdash;
-            </p>
-            <div class="progress gap-no">
-              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 0"></div>
-            </div>
-          </li>
-        </ul>
-        <div class="panel-footer dev-actions">
-          <button class="btn btn-primary btn-lg btn-block">Hire Vasya</button>
-        </div>
-      </div><!-- /.dev-card -->
-    </div><!-- /.col-sm-X -->
-
+          <ul class="list-group text-center dev-skill-list">
+            {{#each skills}}
+              <li class="list-group-item">
+                <p class="gap-no text-muted text-nowrap-overflow dev-skill">
+                  <strong class="text-danger">{{category}}:</strong>
+                  {{#if value}}
+                    {{tag}}
+                  {{else}}
+                    &mdash;
+                  {{/if}}
+                </p>
+                <div class="progress gap-no">
+                  <div {{bind-attr class=":progress-bar progressBarCls :progress-bar-striped"}} role="progressbar" {{bind-attr aria-valuenow="progressBarValueNow"}} aria-valuemin="0" aria-valuemax="100" {{bind-attr style="progressBarStyle"}}>{{value}}%</div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+          <div class="panel-footer dev-actions">
+            <button class="btn btn-default btn-lg btn-block">Hire {{name}}</button>
+          </div>
+        </div><!-- /.dev-card -->
+      </div><!-- /.col-sm-X -->
+    {{/each}}
   </div>
 </div>
-
-
 
 {{!-- developers team --}}
 <div class="container-fluid well">
   <div class="row">
-    <div class="col-sm-offset-1 col-sm-2">
-      <div class="panel panel-primary dev-card dev-card-team">
-        <div class="panel-heading dev-heading">
-          <h4 class="text-center text-nowrap-overflow lift-no gap-no">
-            <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
-            Vasiliy Pupkinovich
-          </h4>
-        </div>
+    {{#each team}}
+      <div class="col-sm-offset-1 col-sm-2">
+        <div class="panel panel-primary dev-card dev-card-team">
 
-        <div class="panel-body">
-          <em class="action pull-right text-muted">
-            Details
-            <i class="fa fa-chevron-down"></i>
-          </em>
-          <p class="text-muted gap-no dev-level">Junior</p>
+          <div class="panel-heading dev-heading">
+            <h4 class="text-center text-nowrap-overflow lift-no gap-no">
+              <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
+              {{name}}
+            </h4>
+          </div>
 
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
-              <span class="sr-only">Arhitect: 55%</span>
+          <div class="panel-body">
+            <em class="action pull-right text-muted">
+              Skill Details
+              <i class="fa fa-chevron-down"></i>
+            </em>
+            <p class="text-muted gap-no dev-level">{{level}}</p>
+
+            {{#each skills}}
+              <div class="progress progress-slim gap-no">
+                <div {{bind-attr class=":progress-bar progressBarCls :progress-bar-striped"}} role="progressbar" {{bind-attr aria-valuenow="progressBarValueNow"}} aria-valuemin="0" aria-valuemax="100" {{bind-attr style="progressBarStyle"}}>
+                  <span class="sr-only">{{category}}: {{value}}%</span>
+                </div>
+              </div>
+            {{/each}}
+
+            <div class="progress progress-slim gap-no">
+              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
+                <span class="sr-only">Arhitect: 55%</span>
+              </div>
             </div>
-          </div>
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-              <span class="sr-only">Back End: 60%</span>
+            <div class="progress progress-slim gap-no">
+              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                <span class="sr-only">Back End: 60%</span>
+              </div>
             </div>
-          </div>
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-info progress-bar-striped text-nowrap" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-              <span class="sr-only">Front End: 10%</span>
+            <div class="progress progress-slim gap-no">
+              <div class="progress-bar progress-bar-info progress-bar-striped text-nowrap" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                <span class="sr-only">Front End: 10%</span>
+              </div>
             </div>
+
           </div>
 
-        </div>
-
-        <div class="panel-footer dev-actions">
-          <div class="progress progress-invert gap-sm">
-            {{!-- <div class="progress-bar progress-bar-striped" style="width:100%"> --}}
-              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 50%">20/40 hours left</div>
-            {{!-- </div> --}}
-          </div>
-
-          <ul class="list-unstyled dev-estimate-list">
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-danger">12</span>
-                <span class="label label-success">5</span>
-              </span>
-              <span class="action">Task #1</span>
-            </li>
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-danger">3</span>
-              </span>
-              <span class="action">Task #2</span>
-            </li>
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-info">1</span>
-              </span>
-              <span class="action">Bugfix #1</span>
-            </li>
-          </ul>
-        </div>
-      </div><!-- /.dev-card -->
-    </div><!-- /.col-sm-X -->
-
-    <div class="col-sm-2">
-      <div class="panel panel-primary dev-card dev-card-team">
-        <div class="panel-heading dev-heading">
-          <h4 class="text-center text-nowrap-overflow lift-no gap-no">
-            <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
-            Vasiliy Pupkinovich
-          </h4>
-        </div>
-
-        <div class="panel-body">
-          <em class="action pull-right text-muted">
-            Details
-            <i class="fa fa-chevron-down"></i>
-          </em>
-          <p class="text-muted gap-no dev-level">Junior</p>
-
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
-              <span class="sr-only">Arhitect: 55%</span>
+          <div class="panel-footer dev-actions">
+            <div class="progress progress-invert gap-sm">
+              {{!-- <div class="progress-bar progress-bar-striped" style="width:100%"> --}}
+                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 50%">20/40 hours left</div>
+              {{!-- </div> --}}
             </div>
-          </div>
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-              <span class="sr-only">Back End: 60%</span>
-            </div>
-          </div>
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-info progress-bar-striped text-nowrap" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-              <span class="sr-only">Front End: 10%</span>
-            </div>
-          </div>
 
-        </div>
-
-        <div class="panel-footer dev-actions">
-          <div class="progress progress-invert gap-sm">
-            {{!-- <div class="progress-bar progress-bar-striped" style="width:100%"> --}}
-              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 50%">20/40 hours left</div>
-            {{!-- </div> --}}
-          </div>
-
-          <ul class="list-unstyled dev-estimate-list">
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-danger">12</span>
-                <span class="label label-success">5</span>
-              </span>
-              <span class="action">Task #1</span>
-            </li>
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-danger">3</span>
-              </span>
-              <span class="action">Task #2</span>
-            </li>
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-info">1</span>
-              </span>
-              <span class="action">Bugfix #1</span>
-            </li>
-          </ul>
-        </div>
-      </div><!-- /.dev-card -->
-    </div><!-- /.col-sm-X -->
-
-    <div class="col-sm-2">
-      <div class="panel panel-primary dev-card dev-card-team">
-        <div class="panel-heading dev-heading">
-          <h4 class="text-center text-nowrap-overflow lift-no gap-no">
-            <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
-            Vasiliy Pupkinovich
-          </h4>
-        </div>
-
-        <div class="panel-body">
-          <em class="action pull-right text-muted">
-            Details
-            <i class="fa fa-chevron-down"></i>
-          </em>
-          <p class="text-muted gap-no dev-level">Junior</p>
-
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
-              <span class="sr-only">Arhitect: 55%</span>
-            </div>
-          </div>
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-              <span class="sr-only">Back End: 60%</span>
-            </div>
-          </div>
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-info progress-bar-striped text-nowrap" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-              <span class="sr-only">Front End: 10%</span>
-            </div>
+            <ul class="list-unstyled dev-estimate-list">
+              <li class="dev-estimate">
+                <span class="pull-right">
+                  <span class="label label-danger">12</span>
+                  <span class="label label-success">5</span>
+                </span>
+                <span class="action">Task #1</span>
+              </li>
+              <li class="dev-estimate">
+                <span class="pull-right">
+                  <span class="label label-danger">3</span>
+                </span>
+                <span class="action">Task #2</span>
+              </li>
+              <li class="dev-estimate">
+                <span class="pull-right">
+                  <span class="label label-info">1</span>
+                </span>
+                <span class="action">Bugfix #1</span>
+              </li>
+            </ul>
           </div>
 
-        </div>
-
-        <div class="panel-footer dev-actions">
-          <div class="progress progress-invert gap-sm">
-            {{!-- <div class="progress-bar progress-bar-striped" style="width:100%"> --}}
-              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 50%">20/40 hours left</div>
-            {{!-- </div> --}}
-          </div>
-
-          <ul class="list-unstyled dev-estimate-list">
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-danger">12</span>
-                <span class="label label-success">5</span>
-              </span>
-              <span class="action">Task #1</span>
-            </li>
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-danger">3</span>
-              </span>
-              <span class="action">Task #2</span>
-            </li>
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-info">1</span>
-              </span>
-              <span class="action">Bugfix #1</span>
-            </li>
-          </ul>
-        </div>
-      </div><!-- /.dev-card -->
-    </div><!-- /.col-sm-X -->
-
-    <div class="col-sm-2">
-      <div class="panel panel-primary dev-card dev-card-team">
-        <div class="panel-heading dev-heading">
-          <h4 class="text-center text-nowrap-overflow lift-no gap-no">
-            <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
-            Vasiliy Pupkinovich
-          </h4>
-        </div>
-
-        <div class="panel-body">
-          <em class="action pull-right text-muted">
-            Details
-            <i class="fa fa-chevron-down"></i>
-          </em>
-          <p class="text-muted gap-no dev-level">Junior</p>
-
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
-              <span class="sr-only">Arhitect: 55%</span>
-            </div>
-          </div>
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-              <span class="sr-only">Back End: 60%</span>
-            </div>
-          </div>
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-info progress-bar-striped text-nowrap" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-              <span class="sr-only">Front End: 10%</span>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="panel-footer dev-actions">
-          <div class="progress progress-invert gap-sm">
-            {{!-- <div class="progress-bar progress-bar-striped" style="width:100%"> --}}
-              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 50%">20/40 hours left</div>
-            {{!-- </div> --}}
-          </div>
-
-          <ul class="list-unstyled dev-estimate-list">
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-danger">12</span>
-                <span class="label label-success">5</span>
-              </span>
-              <span class="action">Task #1</span>
-            </li>
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-danger">3</span>
-              </span>
-              <span class="action">Task #2</span>
-            </li>
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-info">1</span>
-              </span>
-              <span class="action">Bugfix #1</span>
-            </li>
-          </ul>
-        </div>
-      </div><!-- /.dev-card -->
-    </div><!-- /.col-sm-X -->
-
-    <div class="col-sm-2">
-      <div class="panel panel-primary dev-card dev-card-team">
-        <div class="panel-heading dev-heading">
-          <h4 class="text-center text-nowrap-overflow lift-no gap-no">
-            <img alt="avatar" class="img-circle dev-ava" src="http://33.media.tumblr.com/avatar_0d8b0e71db1c_128.png">
-            Vasiliy Pupkinovich
-          </h4>
-        </div>
-
-        <div class="panel-body">
-          <em class="action pull-right text-muted">
-            Details
-            <i class="fa fa-chevron-down"></i>
-          </em>
-          <p class="text-muted gap-no dev-level">Junior</p>
-
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
-              <span class="sr-only">Arhitect: 55%</span>
-            </div>
-          </div>
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-              <span class="sr-only">Back End: 60%</span>
-            </div>
-          </div>
-          <div class="progress progress-slim gap-no">
-            <div class="progress-bar progress-bar-info progress-bar-striped text-nowrap" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-              <span class="sr-only">Front End: 10%</span>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="panel-footer dev-actions">
-          <div class="progress progress-invert gap-sm">
-            {{!-- <div class="progress-bar progress-bar-striped" style="width:100%"> --}}
-              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 50%">20/40 hours left</div>
-            {{!-- </div> --}}
-          </div>
-
-          <ul class="list-unstyled dev-estimate-list">
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-danger">12</span>
-                <span class="label label-success">5</span>
-              </span>
-              <span class="action">Task #1</span>
-            </li>
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-danger">3</span>
-              </span>
-              <span class="action">Task #2</span>
-            </li>
-            <li class="dev-estimate">
-              <span class="pull-right">
-                <span class="label label-info">1</span>
-              </span>
-              <span class="action">Bugfix #1</span>
-            </li>
-          </ul>
-        </div>
-      </div><!-- /.dev-card -->
-    </div><!-- /.col-sm-X -->
+        </div><!-- /.dev-card -->
+      </div><!-- /.col-sm-X -->
+    {{/each}}
   </div>
 </div>

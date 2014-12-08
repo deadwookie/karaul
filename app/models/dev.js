@@ -4,6 +4,8 @@ export default DS.Model.extend({
 	name: DS.attr('string'),
 	salary: DS.attr('number'),
 	skills: DS.hasMany('skill', { async: true }),
+	project: DS.belongsTo('project'),
+	game: DS.belongsTo('game'),
 
 	marketSalary: function() {
 		var values = this.get('skills').getEach('value');
@@ -42,5 +44,26 @@ export default DS.Model.extend({
 		}.bind(this));
 
 		return level;
-	}.property('skills.@each.value')
+	}.property('skills.@each.value'),
+
+	cardHeaderCls: function() {
+		var headerCls = 'default';
+
+		switch(this.get('level')) {
+			case 'junior':
+				headerCls = 'warning';
+			break;
+			case 'middle':
+				headerCls = 'info';
+			break;
+			case 'senior':
+				headerCls = 'success';
+			break;
+			case 'student':
+				headerCls = 'default';
+			break;
+		}
+
+		return 'panel-' + headerCls;
+	}.property('skills.@each.value', 'level')
 });
