@@ -10,5 +10,5 @@ export default DS.Model.extend({
 	}),
 	isRead: DS.attr('boolean'),
 	topic: DS.attr('string'),
-	project: DS.belongsTo('project')
+	//project: DS.belongsTo('project')
 });

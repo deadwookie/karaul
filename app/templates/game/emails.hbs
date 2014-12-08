@@ -1,0 +1,11 @@
+<button {{action "generateEvent" }}>generate event</button>
+<div class="list-group">
+	{{#each item in model}}
+		<a href="#" class="list-group-item" {{bind-attr class="isRead::active"}}>
+			{{#link-to "game.emails" tagName="div" href=false}}
+				<h4 class="list-group-item-heading">{{item.topic}}</h4>
+				<p class="list-group-item-text">{{item.body}}</p>
+			{{/link-to}}
+		</a>
+	{{/each}}
+</div>

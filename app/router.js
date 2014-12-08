@@ -14,7 +14,7 @@ Router.map(function() {
 
 			this.route('project');
 			this.route('jobmarket');
-			this.route('email');
+			this.route('emails');
 			this.route('log');
 		});
 	});
