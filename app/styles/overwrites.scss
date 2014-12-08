@@ -1,13 +1,28 @@
-
 .panel-primary {
   .panel-heading .text-muted {
     color: #aaa;
   }
+
+  &.panel-compact .panel-heading {
+    color: $brand-primary;
+  }
+}
+
+.panel-compact {
+  border-left-width: 7px;
+
+  .panel-body {
+    padding: $panel-body-padding/2;
+  }
+
+  .panel-heading {
+    padding: $panel-body-padding/2;
+    background-color: transparent !important;
+
+  }
 }
 
 .progress {
-  border-radius: 0;
-
   .progress-bar {
     white-space: nowrap;
     text-shadow: 1px 1px 1px #000;
