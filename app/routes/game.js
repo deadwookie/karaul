@@ -4,6 +4,7 @@ export default Ember.Route.extend({
 	model: function(params) {
 		return this.store.find('game', params.game);
 	},
+
 	afterModel: function(model) {
 		if (model.get('status') === 'pending') {
 			this.transitionTo('/new/' + model.id)
