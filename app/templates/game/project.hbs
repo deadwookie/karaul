@@ -1,20 +1,58 @@
-<h1>Project data</h1>
-{{#each model.projects}}
-  <ul>
-    <li>name: {{name}}</li>
-    <li>projectStage: {{projectStage}}</li>
-    <li>keyCategory: {{keyCategory}}</li>
-    <li>userCount: {{userCount}}</li>
-    <li>budget: {{budget}}</li>
+{{#unless isPlayer}}
+    you are no able to change anything... (not in game.players)
+{{/unless}}
+
+{{#if isCreator}}
+    you are awesome (creator)
+{{/if}}
+
+<h1>Game data</h1>
+<ul>
+    <li>sprintCount: {{model.sprintCount}}</li>
+    <li>yearCount: {{model.yearCount}}</li>
+    <li>status: {{model.status}}</li>
+    <li>creator: {{model.creator.name}}</li>
     <li>
-      employees:
-      <ul>
-      {{#each employees}}
-        <li>
-          name: {{name}} | salary: {{salary}}
-        </li>
-      {{/each}}
-      </ul>
+        players:
+        <ul>
+            {{#each model.players}}
+                <li>{{name}}</li>
+            {{/each}}
+        </ul>
     </li>
-  </ul>
-{{/each}}
+    <li>
+        dev pool:
+        <ul>
+            {{#each model.devPool}}
+                <li>
+                  name: {{name}} | salary: {{salary}} | marketsalary: {{marketSalary}} | level: {{level}}
+                </li>
+            {{/each}}
+        </ul>
+    </li>
+    <li>
+    <h3>Project data</h3>
+    {{#each model.projects}}
+        <ul>
+            <li>name: {{name}}</li>
+            <li>projectStage: {{projectStage}}</li>
+            <li>keyCategory: {{keyCategory}}</li>
+            <li>userCount: {{userCount}}</li>
+            <li>budget: {{budget}}</li>
+            <li>
+                employees:
+                <ul>
+                    {{#each employees}}
+                        <li>
+                            name: {{name}} | salary: {{salary}}
+                        </li>
+                    {{/each}}
+                </ul>
+            </li>
+        </ul>
+    {{/each}}
+    </li>
+</ul>
+
+
+
