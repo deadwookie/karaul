@@ -32,6 +32,7 @@ export default Ember.Object.extend({
 
 	newDev: function(level) {
 		var data = {},
+			// skillLevels = [15,30,45];
 			skillLevels = this.getDevSkillLevels(level, this.getDevSkillCount(level));
 
 		data.name = this.getRandomString(5, {capitaliseFirst: true}) + ' ' + this.getRandomString(7, {capitaliseFirst: true});
@@ -91,7 +92,7 @@ export default Ember.Object.extend({
 		}
 
 		var skillSettings = this.get('config.skill'),
-			skillLimits = skillSettings[level],
+			skillLimits = this.get('config.skillLevels')[level],
 			result = [],
 			oneSkillMoreThan,
 			sumSkillMoreThan,
@@ -102,11 +103,11 @@ export default Ember.Object.extend({
 			result = [];
 
 			for (i = 0; i < count; i++) {
-				s = skillSettings.increment * (Math.round((Math.floor(Math.random() * (skillSettings.max - skillSettings.minSum + 1)) + skillSettings.increment) / skillSettings.increment));
+				s = skillSettings.increment * Math.round(Math.random() * 100 / skillSettings.increment);
 				result.push(s);
 			}
 
-			oneSkillMoreThan = result.every(function(item) {
+			oneSkillMoreThan = result.any(function(item) {
 				return item >= skillLimits.max;
 			});
 			sumSkillMoreThan = skillLimits.sum <= result.reduce(function(pItem, cItem) {
@@ -228,11 +229,15 @@ export default Ember.Object.extend({
 		var devCount = this.config.get('game.devCount'),
 			promises = [];
 
-		for (var level in devCount) {
+		Object.keys(devCount).forEach(function(level) {
+			console.log(devCount, level);
 			for (var i = 0; i < devCount[level]; i++) {
 				promises.push(this.newDev(level));
 			}
-		}
+		}.bind(this));
+
+		// for (var level in devCount) {
+		// }
 
 		return Ember.RSVP.Promise.all(promises);
 	},

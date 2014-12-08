@@ -9,5 +9,6 @@ export default DS.Model.extend({
 		defaultValue: function() { return new Date(); }
 	}),
 	isRead: DS.attr('boolean'),
-	topic: DS.attr('string')
+	topic: DS.attr('string'),
+	project: DS.belongsTo('project')
 });

@@ -5,19 +5,51 @@ module.exports = function(environment) {
 			sprintCount: 40,
 			yearCount: 4,
 			devCount: {
-				junior: 6,
-				middle: 3,
-				senior: 2
+				student: 0,
+				junior: 4,
+				middle: 2,
+				senior: 1
 			}
 		},
 
 		project: {
 			startingBudget: 100000,
 			taskCount: {
-				alpha: 10,
-				beta: 14,
-				release: 22,
-				v2: 27,
+				alpha: 1,
+				beta: 1,
+				release: 1,
+				v2: 1
+			}
+		},
+
+		skillLevels: {
+			student: {
+				max: 10,
+				sum: 20,
+				maxSum: 40
+			},
+			junior: {
+				max: 20,
+				sum: 40,
+				maxSum: 70
+			},
+
+			middle: {
+				max: 50,
+				sum: 90,
+				maxSum: 110
+			},
+
+			senior: {
+				max: 70,
+				sum: 150,
+				maxSum: 220
+			},
+
+			guru: {
+				max: 100,
+				sum: 300,
+				maxSum: 300
 			}
 		},
 
@@ -27,32 +59,8 @@ module.exports = function(environment) {
 			max: 100,
 			increment: 5,
 			maxGrow: 90,
-			minCount: 1,
-			maxCount: 3,
-
-			junior: {
-				max: 20,
-				sum: 40,
-				maxSum: 90
-			},
-
-			middle: {
-				max: 50,
-				sum: 90,
-				maxSum: 150
-			},
-
-			senior: {
-				max: 70,
-				sum: 150,
-				maxSum: 300
-			},
-
-			guru: {
-				max: 100,
-				sum: 300,
-				maxSum: 300
-			}
+			minCount: 3,
+			maxCount: 3
 		},
 
 		taskComplexity: {
