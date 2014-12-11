@@ -13,6 +13,11 @@ export default Ember.Controller.extend({
 			return record.save().then(function(game) {
 				return this.transitionToRoute('/play/' + game.id);
 			}.bind(this));
+		},
+
+		// @TODO: remove. test purpose only
+		notify: function() {
+			this.notify.info('test');
 		}
 	}
 });
